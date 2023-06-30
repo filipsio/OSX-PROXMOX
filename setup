@@ -320,7 +320,7 @@ do
 			--machine q35 \
 			--memory ${RAM_SIZE} \
 			--name ${VM_NAME} \
-			--net0 vmxnet3,bridge=vmbr0 \
+			--net0 vmxnet3,bridge=vmbr1,tag=8 \
 			--numa 0 \
 			--onboot 0 \
 			--ostype other \
@@ -360,7 +360,7 @@ do
 			--machine q35 \
 			--memory ${RAM_SIZE} \
 			--name ${VM_NAME} \
-			--net0 vmxnet3,bridge=vmbr0 \
+			--net0 vmxnet3,bridge=vmbr1,tag=8 \
 			--numa 0 \
 			--onboot 0 \
 			--ostype other \
@@ -385,7 +385,7 @@ do
 		echo "Virtual machine (${VM_NAME}) created successfully."
 		echo " "
 		echo "Access the Proxmox Web Panel to continue with the installation ..."
-		echo "https://`ip address show vmbr0 | grep -w "inet" | awk -F " " '{ print $2 }' | awk -F "/" '{ print $1 }'`:8006"
+		echo "https://`ip address show vmbr1 | grep -w "inet" | awk -F " " '{ print $2 }' | awk -F "/" '{ print $1 }'`:8006"
 		echo " "
 		exit
 	fi
